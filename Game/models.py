@@ -12,6 +12,8 @@ class Player(models.Model):
 
 class Update(model.Model):
     title = models.CharField(max_length=200, verbose_name="Title")
+    season = models.CharField(max_length=200, verbose_name="Season")
+    body = models.TextField(verbose_name="Body")
 
 
     def __unicode__(self):
