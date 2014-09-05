@@ -10,7 +10,7 @@ class Player(models.Model):
         return self.name
 
 
-class Update(model.Model):
+class Update(models.Model):
     title = models.CharField(max_length=200, verbose_name="Title")
     season = models.CharField(max_length=200, verbose_name="Season")
     body = models.TextField(verbose_name="Body")
