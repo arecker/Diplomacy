@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block meta_title %}<title>Diplomacy | Home</title>{% endblock %}
+{% block main %}
+<!-- Progress bar-->
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ data.percent }}%;">
+    <span class="sr-only">{{ data.percent }}% Complete</span>
+  </div>
+</div>
+<div class="alert" role="alert">
+	{% ifequal data.playersWaiting|length 0 %}
+	<p><i class="icon-info-sign"></i> All players have moved</p>
+	{% else %}
+	{% ifequal data.playersWaiting|length 1 %}
+	<p><i class="icon-info-sign"></i> Waiting for <a href="#" class="alert-link" data-toggle="modal" data-target="#playersWaiting">{{ data.playersWaiting|length }} player</a> to move</em></p>
+	{% else %}
+	<p><i class="icon-info-sign"></i> Waiting for <a href="#" class="alert-link" data-toggle="modal" data-target="#playersWaiting">{{ data.playersWaiting|length }} players</a> to move</em></p>
+	{% endifequal %}
+	{% endifequal %}
+</div>
+
+<!-- Hidden modal -->
+<div class="modal fade" id="playersWaiting" tabindex="-1" role="dialog" aria-labelledby="playersWaiting" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="playersWaiting">Waiting for Players</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					{% for player in data.playersWaiting %}
+					<div class="col-xs-6">
+						<div class="media">
+							{% if player.image %}
+							<img class="media-object pull-left" src="{{ player.image }}">
+							{% endif %}
+							<div class="media-body">
+								<h4 class="media-heading">{{ player.name }}</h4>
+								<p>{{ player.country }}</p>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div> <!-- end modal body -->
+</div> <!-- end container -->
+
+{% if data.latest %}
+<div class="page-header">
+	<h1 class="lead">{{ data.latest.title }}</h1>
+	<strong>{{ data.latest.season }}</strong>
+</div>
+<p>
+	{{ data.latest }}
+</p>
+{% else %}
+<div class="page-header">
+	<h1 class="lead">No updates yet</h1>
+	<strong>Check again later</strong>
+</div>
+{% endif %}
+{% endblock %}

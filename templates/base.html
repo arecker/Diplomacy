@@ -1,147 +1,49 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Diplomacy</title>
-    <link rel="stylesheet" href="http://bootswatch.com/sandstone/bootstrap.min.css"/>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {% block meta_title %}<title>Diplomacy | Home</title>{% endblock%}
+  <link rel="stylesheet" href="http://bootswatch.com/sandstone/bootstrap.min.css"/>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"/>
+  <meta name="viewport" content="width=device-width" />
     <style>
-        .main {
-            max-width: 60%;
-            margin-top: 2em;
-            margin-bottom: 2em;
-        }
-
-        .journal, .statusbar {
-            max-width: 50%;
-        }
-
-        .alert-link {
-            color: black !important;
-        }
-    </style>
+    .main { max-width: 800px; }
+    .alert-link { color: black !important; }
+    .site-header { white-space: nowrap; }
+  </style>
 </head>
 <body>
-
-    <div class="container main">
-        <div class="page-header header">
-            <div class="media">
-              <a class="pull-left" href="#">
-                <!--img class="media-object" src="http://i.imgur.com/7K49PZn.jpg" height="100px"-->
-              </a>
-              <div class="media-body">
-                <h1 class="media-heading">Diplomacy</h1>
-                <h4>This is the description</h4>
-              </div>
-            </div>
-        </div>
-        <div class="container navigation">
-            <ul class="nav nav-pills">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="#">Updates</a></li>
-              <li><a href="#">Players</a></li>
-              <li><a href="#">Rules</a></li>
-            </ul>
-        </div>
-        <div class="container statusbar pull-left">
-            <div class="page-header">
-                <h2>Round Information</h2>
-            </div>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                60%
-              </div>
-            </div>
-            <div class="alert" role="alert">
-                <p><i class="icon-info-sign"></i> Waiting for <a href="#" class="alert-link" data-toggle="modal" data-target="#myModal">3 players</a> to move</em></p>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Waiting for Players</h4>
-                  </div>
-                  <div class="modal-body">
-
-                    <div class="media">
-                        <img class="media-object pull-left" src="http://placehold.it/50x50" alt="...">
-
-                      <div class="media-body">
-                        <h4 class="media-heading">Chi Won</h4>
-                        <p>South Korea</p>
-                      </div>
-                    </div>
-
-                    <div class="media">
-                        <img class="media-object pull-left" src="http://placehold.it/50x50" alt="...">
-
-                      <div class="media-body">
-                        <h4 class="media-heading">Jordan Snyder</h4>
-                        <p>Germany</p>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-        </div>
-        <div class="container">
-            <div class="page-header journal">
-                <h2>Outbreak!</h2>
-                <strong>Date: March 3, 1942</strong>
-                <hr/>
-                <p>
-                    It was a dark and stormy night.  Some natives were gathered around the campfire.  The venerated
-                    Chief kicked dirt into the blaze as he wearily rose to his feet.  He said...
-
-                    <blockquote>
-                        <p>This is a sad day for our people.  The sickness has spread to our animals, our community, and even our children.</p>
-                    </blockquote>
-                </p>
-				<p>
-					In 1884,  meridian time personnel met
- in Washington to change Earth time.
-First words said was that only 1 day
-could be used on Earth to not change
- the 1 day bible. So they applied the 1
-day  and  ignored  the  other  3 days.
-The bible time was wrong then and it
- proved wrong today. This a major lie
-  has so much evil feed from it's wrong.
-No man on Earth has no belly-button,
-  it proves every believer on Earth a liar.</p>
- <p>
-Children will be blessed for
-Killing Of Educated Adults
-Who Ignore 4 Simultaneous
- Days Same Earth Rotation.
-Practicing  Evil  ONEness -
-Upon Earth Of  Quadrants.
- Evil Adult Crime VS Youth.
-  Supports Lie Of Integration.
-  1 Educated Are Most Dumb.
-  Not 1 Human Except Dead 1.
-  Man Is Paired,  2 Half 4 Self.
-  1 of God Is Only 1/4 Of God.                         
-   Bible A Lie & Word Is Lies.
-   Navel Connects 4 Corner 4s.
-  God Is Born Of A Mother –
-   She Left Belly B. Signature.
-Every Priest Has Ma Sign
-  But Lies To Honor Queers.
-Belly B. Proves 4 Corners.</p>
-            </div>
-        </div>
+  <div class="container-fluid main">
+    
+    <!-- Site Header -->
+    <div class="page-header site-header">
+      <h1>Diplomacy</h1>
+      <h1 class="lead">A game of strategy</h1>
     </div>
+
+    <!-- Navbar -->
+    <ul class="nav nav-pills">
+      <li id="homeButton"><a href="/">Home</a></li>
+      <li id="archivesButton"><a href="/archives">Archives</a></li>
+      <li id="playersButton"><a href="/">Players</a></li>
+      <li id="rulesButton"><a href="/rules">Rules</a></li>
+    </ul>
+    <hr>
+
+    {% block main %}
+    {% endblock %}
+
+  </div>
 </body>
 <footer>
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script>
+    // Highlight nav button
+    // -- I don't know if I'm proud of this or not
+    $('.nav-pills').find('li').removeClass('active');
+    var thisPage = $('title').text().split(' | ')[1].toLowerCase();
+    $('#' + thisPage + 'Button').addClass('active');
+  </script>
 </footer>
 </html>
