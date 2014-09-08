@@ -39,7 +39,10 @@ class UpdateManager(models.Manager):
 
 
     def get_by_id(self, id):
-        return Update.objects.get(id=id)
+        try:
+            return Update.objects.get(id=id)
+        except Update.DoesNotExists:
+            return None
 
 
     def get_archives(self):
