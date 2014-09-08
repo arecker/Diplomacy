@@ -49,3 +49,9 @@ def get_players(request):
     return render_to_response("players.html", {
         "data": data,
     })
+
+
+def get_rules(request):
+    return render_to_response("rules.html", {
+
+    })

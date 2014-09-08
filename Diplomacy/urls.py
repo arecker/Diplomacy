@@ -7,5 +7,6 @@ urlpatterns = patterns('',
     url(r'^archives/$', 'Game.views.get_archives', name='archives'),
     url(r'^archives/((?P<id>[0-9]+))/$', 'Game.views.get_archive_detail', name='archive detail'),
     url(r'^players/$', 'Game.views.get_players', name='players'),
+    url(r'^rules/$', 'Game.views.get_rules', name='rules'),
     url(r'^admin/', include(admin.site.urls)),
 )
