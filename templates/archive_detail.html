@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block meta_title %}<title>Diplomacy | Archives</title>{% endblock%}
 {% block main %}
+<ol class="breadcrumb">
+  <li><a href="/archives">Archives</a></li>
+  <li class="active">{{ data.update.title }}</li>
+</ol>
 <div class="page-header">
 	<h1 class="lead">{{ data.update.title }}</h1>
 	<strong>{{ data.update.season }}</strong>
