@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block meta_title %}<title>Diplomacy | Players</title>{% endblock %}
+{% block main %}
+<div class="row">
+	{% for player in data.players %}
+	<div class="col-xs-6">
+		<div class="media">
+			{% if player.image %}
+			<img class="media-object pull-left" height="50px" src="{{ player.image }}">
+			{% endif %}
+			<div class="media-body">
+				<h1 class="lead media-heading">{{ player.name }}</h4>
+				<p>{{ player.country }}</p>
+			</div>
+		</div>
+		<p>
+			{{ player.description }}
+		</p>
+		{% if player.email %}
+		<p><a href="mailto:{{ player.email }}" class="btn" role="button"><i class="icon-envelope"></i> Email {{ player.name }}</a></p>
+		{% endif %}
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

@@ -10,6 +10,8 @@
     .main { max-width: 800px; }
     .alert-link { color: black !important; }
     .site-header { white-space: nowrap; }
+    td a:link, td a:visited, p a:link, p a:visited { color: #4099FF !important;}
+    figcaption h1 { color: black; }
   </style>
 </head>
 <body>
@@ -25,7 +27,7 @@
     <ul class="nav nav-pills">
       <li id="homeButton"><a href="/">Home</a></li>
       <li id="archivesButton"><a href="/archives">Archives</a></li>
-      <li id="playersButton"><a href="/">Players</a></li>
+      <li id="playersButton"><a href="/players">Players</a></li>
       <li id="rulesButton"><a href="/rules">Rules</a></li>
     </ul>
     <hr>
@@ -45,5 +47,7 @@
     var thisPage = $('title').text().split(' | ')[1].toLowerCase();
     $('#' + thisPage + 'Button').addClass('active');
   </script>
+  {% block script %}
+  {% endblock %}
 </footer>
 </html>

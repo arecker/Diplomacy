@@ -33,7 +33,7 @@ class Player(models.Model):
 class UpdateManager(models.Manager):
     def get_latest(self):
         try:
-            return Update.objects.all().order_by('-date')[0]
+            return self.get_archives()[0]
         except IndexError:
             return None
 
@@ -42,11 +42,24 @@ class UpdateManager(models.Manager):
         return Update.objects.get(id=id)
 
 
+    def get_archives(self):
+        return Update.objects.all().order_by('-date')
+
+
+    def get_before_map(self, id):
+        try:
+            return self.get_by_id(id - 1).map_state
+        except:
+            return None
+
+
 class Update(models.Model):
     date = models.DateTimeField(db_index=True, auto_created=True, blank=True, verbose_name="Date")
     title = models.CharField(max_length=200, verbose_name="Title")
     season = models.CharField(max_length=200, verbose_name="Season")
     body = models.TextField(verbose_name="Body")
+    map_state = models.CharField(max_length=200, blank=True, verbose_name="State Map URL")
+    map_action = models.CharField(max_length=200, blank=True, verbose_name="Action Map URL")
 
     objects = UpdateManager()
 

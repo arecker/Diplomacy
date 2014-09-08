@@ -1,6 +1,37 @@
 {% extends "base.html" %}
 {% block meta_title %}<title>Diplomacy | Home</title>{% endblock %}
 {% block main %}
+<div class="row">
+  {% if data.beforeMap %}
+  <div class="col-xs-6 col-md-3">
+      <img class="img-thumbnail map" src="{{ data.beforeMap }}" data-title="Before">
+      <div class="caption text-center">
+      	<br>
+      	<strong>Before</strong>
+      </div>
+  </div>
+  {% endif %}
+  {% if data.actionMap %}
+  <div class="col-xs-6 col-md-3">
+      <img class="img-thumbnail map" src="{{ data.actionMap }}" data-title="Action">
+      <div class="caption text-center">
+      	<br>
+      	<strong>Action</strong>
+      </div>
+  </div>
+  {% endif %}
+  {% if data.presentMap %}
+  <div class="col-xs-6 col-md-3">
+      <img class="img-thumbnail map" src="{{ data.presentMap }}" data-title="Present">
+      <div class="caption text-center">
+      	<br>
+      	<strong>Present</strong>
+      </div>
+  </div>
+  {% endif %}
+</div>
+<hr>
+
 <!-- Progress bar-->
 <div class="progress">
   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ data.percent }}%;">
@@ -33,7 +64,7 @@
 					<div class="col-xs-6">
 						<div class="media">
 							{% if player.image %}
-							<img class="media-object pull-left" src="{{ player.image }}">
+							<img class="media-object pull-left" height="50px" src="{{ player.image }}">
 							{% endif %}
 							<div class="media-body">
 								<h4 class="media-heading">{{ player.name }}</h4>
@@ -54,7 +85,7 @@
 	<strong>{{ data.latest.season }}</strong>
 </div>
 <p>
-	{{ data.latest }}
+	{{ data.latest.body | safe }}
 </p>
 {% else %}
 <div class="page-header">
@@ -62,4 +93,14 @@
 	<strong>Check again later</strong>
 </div>
 {% endif %}
+{% block script %}
+    <script src="http://media.alexrecker.com/scripts/intense.min.js"></script>
+    <script>
+	window.onload = function() {
+	    // Intensify all images on the page.
+	    var element = $('.map');
+	    Intense( element );
+	}
+	</script>
+{% endblock %}
 {% endblock %}
