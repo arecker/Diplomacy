@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block meta_title %}<title>Diplomacy | Home</title>{% endblock %}
 {% block main %}
+<div class="alert" rol="alert">
+	<p><i class="icon-info-sign"></i> Click a map to zoom</p>
+</div>
 <div class="row">
   {% if data.beforeMap %}
   <div class="col-xs-6 col-md-3">
