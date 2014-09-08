@@ -15,7 +15,8 @@ def get_home(request):
     if data.latest:
         data.actionMap = data.latest.map_action
         data.presentMap = data.latest.map_state
-    data.beforeMap = Update.objects.get_before_map(data.latest.id)
+    if data.latest:
+        data.beforeMap = Update.objects.get_before_map(data.latest.id)
 
     return render_to_response("home.html", {
         "data": data,
